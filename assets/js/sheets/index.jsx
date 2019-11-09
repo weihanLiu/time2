@@ -1,21 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { list_sheets, approve_sheet} from '../ajax';
+import SheetRow from './row';
 
-import { list_sheets } from '../ajax';
-import SheetItem from './card';
+
 
 let SheetsList = connect(({sheets}) => ({sheets}))(({sheets}) => {
     if (sheets.size == 0) {
       list_sheets();
-    }
-    let cards = _.map([...sheets], ([_, sheet]) => {
-        return <SheetItem 
+	}
+	
+	
+	// let worker = session == null?null:session.user_name;
+    let rows = _.map([...sheets], ([_, sheet]) => {
+        return <SheetRow 
     	key={sheet.id} 
     	sheet={sheet} 
-    	worker={is_worker}
+    	// worker={worker}
     	onClick={approve_sheet}
     	/>;
   });
@@ -26,13 +29,13 @@ let SheetsList = connect(({sheets}) => ({sheets}))(({sheets}) => {
 	    <tr>
 	      <th>Date</th>
 	      <th>Approved</th>
-	      <th>Worker</th>
+	      {/* <th>Worker</th> */}
 
 	      <th></th>
 	    </tr>
 	  </thead>
 	  <tbody>
-	  	{cards}
+	  	{rows}
 	  </tbody>
 	</table>
 

@@ -22,6 +22,8 @@ export default function init_page(root) {
 
 
 function Page(props) {
+  console.log("page props")
+  console.log(props)
   return (
     <Router>
       <Navbar bg="dark" variant="dark">
@@ -33,8 +35,13 @@ function Page(props) {
             </NavLink>
           </Nav.Item>
           <Nav.Item>
-            <NavLink to="/users" exact activeClassName="active" className="nav-link">
-              Users
+            <NavLink to="/sheets" exact activeClassName="active" className="nav-link">
+              Show Timesheets
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink to="/sheets/new" exact activeClassName="active" className="nav-link">
+              New Timesheet
             </NavLink>
           </Nav.Item>
         </Nav>
@@ -53,6 +60,10 @@ function Page(props) {
           <Login />
         </Route>
         
+        <Route exact path="/sheets">
+          <SheetsList />
+        </Route>
+        
         <Route exact path="/sheets/new">
           <SheetsNew />
         </Route>
@@ -61,12 +72,6 @@ function Page(props) {
           (props) =>
             <SheetsShow id={props.match.params.id} />
         } />
-
-        <Route exact path="/sheets">
-          <SheetsList />
-        </Route>
-        
-
       </Switch>
     </Router>
   );

@@ -5,12 +5,14 @@ defmodule Time2.Users.User do
   schema "users" do
     field :email, :string
     field :name, :string
+    field :password_hash, :string
 
 
     belongs_to :manager, Time2.Users.User
     has_many :workers, Time2.Users.User, foreign_key: :manager_id
 
-
+    field :password, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
 
     timestamps()
   end

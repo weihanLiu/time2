@@ -29,7 +29,7 @@ function forms(st0, action) {
     return reducer(st0, action);
 }
 
-function users(st0 = Map.new(), action) {
+function users(st0 = new Map(), action) {
     return st0;
 }
 
@@ -52,6 +52,7 @@ function root_reducer(st0, action) {
         forms,
         sheets,
         session,
+        users,
         
     });
     return deepFreeze(reducer(st0, action));

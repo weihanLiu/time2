@@ -21,6 +21,10 @@ defmodule Time2.Jobs do
     Repo.all(Job)
   end
 
+  def get_id_by_code(jobcode) do
+    Repo.get_by(Job, job_code: jobcode).id
+  end
+
   @doc """
   Gets a single job.
 

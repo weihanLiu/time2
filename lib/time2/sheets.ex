@@ -21,6 +21,20 @@ defmodule Time2.Sheets do
     Repo.all(Sheet)
   end
 
+  def get_sheet(id) do
+    Repo.one(
+      from(s in Sheet,
+      where: s.id == ^id,
+      preload: [:worker, :tasks]
+      )
+    )
+  end
+
+  def approve(id) do
+    from(s in Sheet, where: s.id == ^id)
+    |> Repo.update_all(set: [approve_status: true])
+  end
+
   @doc """
   Gets a single sheet.
 
