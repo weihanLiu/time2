@@ -13,7 +13,7 @@ https://github.com/weihanLiu/time2
 
 
 3. What's the version number of your github release?
-235b3cd098ac56fd3b5690c95f08a69428b58008
+235b3cd098ac56fd3b5690c95f08a69428b580
 
 
 4. What's the URL that you deployed to?
@@ -21,7 +21,7 @@ http://time2.weihanliu.space/
 
 
 5. Is your app functionality complete? If not, what's missing?
-No. 
+No. Couldn't add task to timesheet. 
 
 
 6. Is your app properly deployed? If not, what went wrong?
